@@ -1,0 +1,28 @@
+<head>
+  <link rel='stylesheet' href="assets/stylesheets/login.css">
+</head>
+
+<div class="all1">
+<center>
+<p class="log">로그인</p>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :email, required: false, autofocus: true , class: "e"%><br>
+    <%= f.input :password, required: false %><br>
+    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+  </div>
+  <div class="layer">
+  <span class="content"></span>
+
+</div>
+<body> <div id="wrapper"></div></body>
+</style>
+  <div class="form-actions">
+    <%= f.button :submit, "로그인" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</center>
+</div>
+<br><br><br><br><br>

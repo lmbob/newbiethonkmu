@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>마타마플</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/agency.min.css" rel="stylesheet">
+    
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="height: 60px; background-color:#000000;">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Like Lion</a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto ">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/home/index/#hotPle">오늘의 핫플</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/home/index/#recent">Recent</a>
+            </li>
+            <li class="nav-item">
+                <% if user_signed_in? %>
+                  <%= link_to 'log_out', destroy_user_session_path, method: :delete,  class:"f btn nav-link" %>
+            </li>
+            <li class="nav-item">
+                <% else %>
+                  <%= link_to '회원가입', new_user_registration_path, class:"f btn nav-link" %>
+            </li>
+            <li class="nav-item">      
+                  <%= link_to 'log_in', new_user_session_path, class:"f btn nav-link" %>
+                <% end %>
+            </li>
+          </ul>
+        </div>
+        
+      </div>   
+    </nav>
+    <header class="masthead" style="background-color: #006e96; padding-left:auto; padding-right:auto;">
+      <div class="row">
+        <div><a class="navbar-brand" href="/home/index" style = "margin-left:30px" ><%= image_tag("logo2.png") %></a></div>
+        <div class="container" style = "padding: 30px; margin-left:0px;">
+            <!--<a class="navbar-brand" href="/home/index"><%= image_tag("logo2.png") %></a>-->
+            <div class="intro-text">
+              <div style="text-align:center; font-size:40px; color:white;">
+                <span>나만의 공간에서<br>나만의 시간을 말하다</span><hr>
+              </div>
+            </div>
+            <form class="form nav-form" method="post" action="/search" style="padding-left: 300px;">
+              <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <div class="form-group">
+                  <select class="form-control" name="map" style="width:300px">
+                    <option value="" hidden>지역</option>    
+                    <option value="마포구">서울 마포구</option>
+                    <option value="용산구">서울 용산구</option>
+                    <option value="종로구">서울 종로구</option>
+                    <option value="강남구">서울 강남구</option>
+                    <option value="성동구">서울 성동구</option>
+                    <option value="을왕리">인천 을왕리</option>
+                  </select>
+                  <select class="form-control" name="ampm">
+                    <option value="" hidden>오전/오후</option>    
+                    <option value="am">오전</option>
+                    <option value="pm">오후</option>
+                  </select>
+                  <select class="form-control" name="time">
+                    <option value="" hidden>시간</option>    
+                    <option value="1">1시</option>
+                    <option value="3">3시</option>
+                    <option value="5">5시</option>
+                    <option value="7">7시</option>
+                    <option value="9">9시</option>
+                    <option value="11">11시</option>
+                  </select>
+                </div>
+                <button height='20px' width='100px' class="btn btn-outline-light" style="margin-left: 10px;">검색</button>
+            </form>
+        </div>
+     </div>
+    </header>
+    
+    <%= yield %>
+    
+    <footer style="background-color: #006e96; height:100px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <span class="copyright">Copyright &copy; Your Website 2018</span>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline quicklinks">
+              <li class="list-inline-item">
+                <a href="#">Privacy Policy</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">Terms of Use</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+    
+    
+        <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/agency.min.js"></script>
+    
+  </body>
+  
+</html>

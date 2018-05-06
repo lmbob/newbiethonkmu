@@ -1,0 +1,37 @@
+<head>
+  <link rel='stylesheet' href="assets/stylesheets/join.css">
+</head>
+<div class="all">
+<center>
+  <p class="join">회원가입</p>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :이메일 %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  <br>
+  <div class="field"> 
+    <%= f.label :비밀번호 %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %>자리 이상)
+    </em>
+    <% end %>
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+  <br>
+
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+<%= render "devise/shared/links" %>
+</center>
+</div>
+<br><br><br><br><br>

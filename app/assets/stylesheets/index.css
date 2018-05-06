@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon|PT+Sans');
+*{
+    font-family: 'Do Hyeon', sans-serif;
+}
+.btn{
+    font-family: 'Do Hyeon', sans-serif;
+}
+.my-4{
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 35pt;
+    margin-left: 5%;
+    left:30px;
+    display: inl
+}
+.post{
+    margin-top: 50px;
+    outline: 4px solid #006e96;
+    outline-offset: 15px;
+}
+.row{
+    margin-top:50px;
+}
+.title2{
+    font-size=20px;
+}
+

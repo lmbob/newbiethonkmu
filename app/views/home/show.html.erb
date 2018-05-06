@@ -1,0 +1,42 @@
+<head>
+  <link rel='stylesheet' href="assets/stylesheets/show.css">
+</head>
+
+<center>
+    <div class="show container" style ='margin-bottom:50px;'>
+        <div class="list">
+            <a href="/home/index"> 목록으로 </a>
+            <a href="/home/edit/<%= @place.id %>"> 수정 </a> 
+            <a href="/home/destroy/<%= @place.id %>" data-confirm="게시물을 삭제하시겠습니까?" data-method="post"> 삭제 </a>
+        </div>
+    <hr>
+    <p class="num">작성자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=@place.id%><br>
+    제목&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=@place.title%><br>
+    지역&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=@place.map%><br>
+    시간&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=@place.time%><%=@place.ampm%></p>
+    <hr>
+
+  <%= image_tag(@place.avatar.url, :width => 800, :height => 500) if @place.avatar.url.present?%></br>
+    <%=@place.content%><br><br><br>
+    <a rel="nofollow" data-method="post" href="/home/<%= @place.id %>/like"><button class="btn2" ><img class="btn-img" src="/assets/좋아요.jpg"></a><%= link_to "#{@place.get_upvotes.size}", like_home_path(@place), method: :post %></button>
+    <a rel="nofollow" data-method="post" href="/home/<%= @place.id %>/dislike"><button class="btn3"><img class="btn-img3" src="/assets/싫어요.png"></a><%= link_to "#{@place.get_downvotes.size}", dislike_home_path(@place), method: :post %></button>
+    <br><br>
+ 
+    <hr>
+    <div class="co">
+        <% @place.comments.each do |c|%>
+            <%= c.msg %>
+            <a href="/home/comment_delete/<%= c.id %>" data-method="post">삭제</a>
+            <hr>
+        <% end %>
+    </div>
+        <div class="co2">
+            댓글달기
+            <form action="/home/comment" method="post">
+            <input type="hidden" value="<%= @place.id %>" name ="place_id">
+            <textarea name="comment" cols="130" rows="3" ></textarea>
+            <input type="submit" value="확인">
+            </form>
+        </div>
+    </div>
+</center>

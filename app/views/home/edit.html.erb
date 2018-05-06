@@ -1,0 +1,178 @@
+
+<form class="form" method="post" action="/home/update/<%= @place.id %>">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+                <tbody>
+                    <tr>
+                    <h1>글쓰기</h1>
+                        </td>
+                    </tr>
+                <tr>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">제목</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="입력해보시오" name="title">
+  </div>
+                    </tr>
+                    <tr>
+                        <td>
+                           지역 : 
+                        </td>
+                        <td>
+                            <div class="form-group">
+    <select name="map" class="form-control" id="exampleFormControlSelect1">
+      <option value="" hidden>지역</option>    
+      <option value="마포구">서울 마포구</option>
+      <option value="용산구">서울 용산구</option>
+      <option value="종로구">서울 종로구</option>
+      <option value="강남구">서울 강남구</option>
+      <option value="성동구">서울 성동구</option>
+      <option value="을왕리">인천 을왕리</option>
+    </select>
+  </div>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           오전/오후 : 
+                        </td>
+                        <td>
+      <div class="form-group">
+    <select name="ampm"class="form-control" id="exampleFormControlSelect1">
+      <option value="" hidden>오전/오후</option>    
+      <option value="am">오전</option>
+      <option value="pm">오후</option>
+    </select>
+  </div>
+ 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           시간 : 
+                        </td>
+                        <td>
+  <div class="form-group">
+    <select name="time" class="form-control" id="exampleFormControlSelect1">
+      <option value="" hidden>시간</option>    
+      <option value="1">1시</option>
+      <option value="3">3시</option>
+      <option value="5">5시</option>
+      <option value="7">7시</option>
+      <option value="9">9시</option>
+      <option value="11">11시</option>
+    </select>
+  </div>
+
+            
+                        
+                        </td>
+                    </tr>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">리뷰</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" name="content" rows="4"></textarea>
+  </div>
+<!--                    <tr>-->
+<!--                            <h1>수정하기</h1>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                     <tr>-->
+<!--                        <div class="form-group">-->
+<!--    <label for="exampleFormControlInput1">제목</label>-->
+<!--    <input type="text" class="form-control" id="exampleFormControlInput1" value ="<%= @place.title %>" placeholder="입력해보시오" name="title">-->
+<!--  </div>-->
+
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>-->
+<!--                           지역 : -->
+<!--                        </td>-->
+<!--                        <td>-->
+<!--                            div {-->
+<!--                        height: 500px;-->
+<!--                        width: 50%;-->
+<!--                        background-color: powderblue;-->
+<!--                        }-->
+
+     
+<!--                            <div class="form-group">-->
+<!--                                <select name="map" class="form-control" id="exampleFormControlSelect1">-->
+<!--                                  <option value="" hidden>지역-서울</option>-->
+<!--                                  <option value="<%= @place.map %>" selected hidden><%= @place.map %></option>-->
+<!--                                  <option value="마포구">마포구</option>-->
+<!--                                  <option value="용산구">용산구</option>-->
+<!--                                  <option value="종로구">종로구</option>-->
+<!--                                  <option value="강남구">강남구</option>-->
+<!--                                  <option value="성동구">성동구</option>-->
+<!--                                </select>-->
+<!--                            </div>-->
+                            
+<!--                        </td>-->
+<!--                    </tr>-->
+                    
+<!--                    <tr>-->
+<!--                        <td>-->
+<!--                           오전/오후 : -->
+<!--                        </td>-->
+<!--                        div {-->
+<!--                    height: 200px;-->
+<!--                    width: 50%;-->
+<!--                    background-color: powderblue;-->
+<!--                    }-->
+
+
+<!--                        <td>-->
+<!--                            <div class="form-group">-->
+<!--                            <select class="form-control"  name="ampm"  id="exampleFormControlSelect1">-->
+<!--                                <option value="" hidden>오전/오후</option>  -->
+<!--                                <option value="<%= @place.ampm %>" selected hidden><%= @place.ampm %></option>-->
+<!--                                <option value="am">오전</option>-->
+<!--                                <option value="pm">오후</option>-->
+<!--                            </select> -->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>-->
+<!--                           시간 : -->
+<!--                        </td>-->
+<!--                        div {-->
+            <!--    height: 200px;-->
+            <!--    width: 50%;-->
+            <!--    background-color: powderblue;-->
+            <!--}-->
+
+            
+<!--                        <td>-->
+<!--                            <div class="form-group">-->
+<!--                                <select name="time" class="form-control" id="exampleFormControlSelect1">-->
+<!--                                      <option value="" hidden>시간</option>-->
+<!--                                      <option value="<%= @place.time %>" selected hidden><%= @place.time %></option>-->
+<!--                                      <option value="1">1시</option>-->
+<!--                                      <option value="3">3시</option>-->
+<!--                                      <option value="5">5시</option>-->
+<!--                                      <option value="7">7시</option>-->
+<!--                                      <option value="9">9시</option>-->
+<!--                                      <option value="11">11시</option>-->
+<!--                                </select>-->
+<!--                              </div>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    <div class="form-group">-->
+<!--                    <label for="exampleFormControlTextarea1">리뷰</label>-->
+<!--                    <textarea class="form-control" id="exampleFormControlTextarea1" name="content" rows="4"><%= @place.content %></textarea>-->
+<!--                      </div>-->
+                       
+                    
+              
+                    <tr>
+                        <td colspan=2 style="text-align:center;">
+                            <input type="submit">
+                            <input type="reset">
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </form>
+

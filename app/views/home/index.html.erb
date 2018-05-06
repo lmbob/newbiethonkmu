@@ -1,0 +1,47 @@
+<head>
+  <style>
+    .img-fluid{
+      width: 400px;
+      height: 300px;
+    }
+  </style>
+  <link rel='stylesheet' href="assets/stylesheets/index.css">
+</head>
+<h3 class="my-4 " id="hotPle">오늘의 핫플</h3>
+<div class="row">
+  <% @votes.each_with_index do |vote, index| %>
+      <div class="text-center col-md-3 col-sm-6 mb-4">
+        <a href="/home/show/<%=@spot[index].id%>">
+          <p>no. <%= index+1 %> | <%= @spot[index].title %> | 추천수 : <%= vote[1] %></p>
+          <img class="img-fluid img-square" src="<%= @spot[index].avatar %>" alt="">
+        </a>
+      </div>
+  <% end %>
+</div>
+      <!-- /.row -->
+<hr>
+<center>
+  <p class="my-4 " id="recent">최근 게시물</p>
+</center>
+
+<div class="row">
+  <div class="col-md-10"></div>
+  <div class=".col-md-2">
+  <div class="newPost">
+      <button type="button" class="btn btn-outline-info"><a href="/home/new">새글쓰기</a></button>
+  </div>
+  </div>
+</div>
+
+
+<div class="post container" style="margin-bottom: 50px;">
+  <% @places.each do |p|%>
+    <%=p.id%>&nbsp&nbsp&nbsp&nbsp&nbsp
+    <a class="title2" href="/home/show/<%=p.id%>"><%=p.title%></a><br>
+    <hr>
+  <%end%>
+</div>
+<center>
+  <br>
+</center>
+</span>

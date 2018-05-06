@@ -1,0 +1,9 @@
+<div style="margin-left:100px;margin-right:100px">
+  <br><p style="color:#006e96;">검색결과</p>
+  
+    <% @searchPlace.each do |p| %>
+      <a href="/home/show/<%=p.id%>"><%=p.title%></a><br>
+      <hr>
+    <% end %>
+</div>
+<br><br><br><br><br><br>
