@@ -1,6 +1,6 @@
 class CreatePlaces < ActiveRecord::Migration
   def change
-    create_table :place do |t|
+    create_table :places do |t|
       t.string :title
       t.text :content
       t.string :map
