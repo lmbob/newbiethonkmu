@@ -7,6 +7,7 @@ class CreatePlaces < ActiveRecord::Migration
       t.string :month
       t.string :ampm
       t.integer :time
+      t.string :avatar
       
       t.timestamps null: false
     end
