@@ -213,7 +213,7 @@ PLATFORMS
 DEPENDENCIES
   acts_as_votable (~> 0.11.1)
   byebug
-  carrierwave
+  carrierwave (~> 1.0)
   coffee-rails (~> 4.1.0)
   devise
   jbuilder (~> 2.0)
